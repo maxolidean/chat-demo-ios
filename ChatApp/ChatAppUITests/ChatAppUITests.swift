@@ -28,8 +28,37 @@ class ChatAppUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-       
+    
+    func testLogin(){
+        XCUIDevice.shared().orientation = .faceUp
+        XCUIDevice.shared().orientation = .faceUp
+        
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery.buttons["Sign Up"].tap()
+        XCUIDevice.shared().orientation = .portrait
+        tablesQuery.buttons["I'm a registered user"].tap()
+        tablesQuery.textFields["Email"].tap()
+        
+        let cellsQuery = tablesQuery.cells
+        cellsQuery.children(matching: .textField).element.typeText("sergio@gmail.com")
+        
+        let signInButton = tablesQuery.buttons["Sign In"]
+        signInButton.tap()
+        tablesQuery.secureTextFields["Password"].tap()
+        cellsQuery.children(matching: .secureTextField).element.typeText("qwerty")
+        signInButton.tap()
+        
+        
+    }
+    
+    func testLogout() {
+        XCUIDevice.shared().orientation = .faceUp
+        XCUIDevice.shared().orientation = .faceUp
+        
+        let app = XCUIApplication()
+        app.navigationBars["ChatApp.ChatsTableView"].buttons["Logout"].tap()
+        app.alerts["Logout"].buttons["Yes"].tap()
+        
         
     }
     

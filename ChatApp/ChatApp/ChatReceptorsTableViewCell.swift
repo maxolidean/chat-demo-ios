@@ -52,9 +52,12 @@ class ChatReceptorsTableViewCell: UITableViewCell {
             self.subTitleLabel.setMediumLagashFont()
             
             if let profileImageUrl = user?.profileImageUrl {
-                self.userImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
-                self.userImageView.layer.borderWidth = 0.5
-                self.userImageView.layer.borderColor = UIColor.black.cgColor
+                
+                if profileImageUrl != nil {
+                    self.userImageView.loadImageUsingCacheWithUrlString(urlString: profileImageUrl)
+                    self.userImageView.layer.borderWidth = 0.5
+                    self.userImageView.layer.borderColor = UIColor.black.cgColor
+                }
             }
 
         }

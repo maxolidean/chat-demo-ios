@@ -380,7 +380,7 @@
                                                 <rect key="frame" x="110" y="0.0" width="225" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="go"/>
                                             </textField>
                                         </subviews>
                                         <constraints>

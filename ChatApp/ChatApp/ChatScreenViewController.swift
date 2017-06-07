@@ -330,6 +330,7 @@ class ChatScreenViewController: UICollectionViewController, UICollectionViewDele
         containerView.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.text = user.name
+        nameLabel.textColor = UIColor.white
         
         nameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
         nameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NewMessageTableViewController: UITableViewController {
+class NewMessageTableViewController: BaseTableViewController {
 
     var users = [LocalUser]()
     var refreshControlView: UIRefreshControl?
@@ -25,6 +25,8 @@ class NewMessageTableViewController: UITableViewController {
         fetchAllUsers()
         
         addRefreshControl()
+        
+        self.setNavigationBarStyle()
     }
 
     func doCancel() {
@@ -61,6 +63,7 @@ class NewMessageTableViewController: UITableViewController {
         navBarLabel.translatesAutoresizingMaskIntoConstraints = false
         navBarLabel.text = "New Message"
         navBarLabel.setMediumBoldLagashFont()
+        navBarLabel.textColor = UIColor.white
         
         navBarLabel.leftAnchor.constraint(equalTo: navBarTitleView.rightAnchor, constant: 8).isActive = true
         navBarLabel.centerYAnchor.constraint(equalTo: navBarTitleView.centerYAnchor).isActive = true

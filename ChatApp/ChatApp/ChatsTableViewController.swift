@@ -21,6 +21,7 @@ class ChatsTableViewController: BaseTableViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = ""
+        self.setNavigationBarStyle()
         
         let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(verifyLogout))
         logoutButton.setStyle()
@@ -59,6 +60,7 @@ class ChatsTableViewController: BaseTableViewController {
         let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
             
+            print("llegaaaa")
             let userId  = snapshot.key
             
             Database.database().reference().child("user-messages").child(uid).child(userId).observe(DataEventType.childAdded, with: { (snapshot) in
@@ -67,7 +69,9 @@ class ChatsTableViewController: BaseTableViewController {
                 self.fetchMessagesWithMessageId(messageId: messageId)
                 
                             }, withCancel: nil)
-        }, withCancel: nil)
+        },withCancel: nil)
+        
+        refreshControlView?.endRefreshing()
     }
     
     private func fetchMessagesWithMessageId(messageId: String){
@@ -176,6 +180,7 @@ class ChatsTableViewController: BaseTableViewController {
         userNameLabel.translatesAutoresizingMaskIntoConstraints = false
         userNameLabel.text = user.name
         userNameLabel.setMediumBoldLagashFont()
+        userNameLabel.textColor = UIColor.white
         
         userNameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
         userNameLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true

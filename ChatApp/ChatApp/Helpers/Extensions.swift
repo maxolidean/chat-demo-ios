@@ -151,7 +151,7 @@ extension UIBarButtonItem {
            
         self.setTitleTextAttributes([
             NSFontAttributeName : UIFont(name: "Poppins-Medium", size: 17)!,
-            NSForegroundColorAttributeName : UIColor(r: 30, g: 75, b: 240)],
+            NSForegroundColorAttributeName : UIColor.white],
                                     for: UIControlState.normal)
     }
     

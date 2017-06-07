@@ -105,7 +105,7 @@ class SignupTableViewController: BaseTableViewController {
                                completion: { (user: User?, error) in
                                 if error != nil {
                                     print(error)
-                                    self.showMessage(text: "There has been an error trying to register", title: "Error!")
+                                    self.showMessage(text: "There has been an error trying to sign up the user", title: "Error!")
                                     self.hideSpinner()
                                     return
                                 }
